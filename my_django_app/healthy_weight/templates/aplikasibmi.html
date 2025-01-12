@@ -1,0 +1,66 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="container mt-0">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header bg-success text-white text-center">
+                    <h2>Kalkulator BMI</h2>
+                </div>
+                <div class="card-body text-white">
+                    <form method="post" class="text-center">
+                        {% csrf_token %}
+                        <div class="mb-3 text-start">
+                            <label for="weight" class="form-label">Berat Badan (kg):</label>
+                            <input type="number" class="form-control" id="weight" name="weight" placeholder="Masukkan berat badan Anda" required>
+                        </div>
+                        <div class="mb-3 text-start">
+                            <label for="height" class="form-label">Tinggi Badan (cm):</label>
+                            <input type="number" class="form-control" id="height" name="height" placeholder="Masukkan tinggi badan Anda" required>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Hitung</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-3 gap-2">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title text-white"><i class="fas fa-exclamation-triangle"></i> Kurus</h5>
+                    <p class="card-text text-white">BMI kurang dari 18.5</p>
+                    <span class="badge bg-danger">Kurus</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 gap-2">
+            <div class="card text text-center">
+                <div class="card-body">
+                    <h5 class="card-title text-white"><i class="fas fa-check-circle"></i> Normal</h5>
+                    <p class="card-text text-white">BMI antara 18.5 sampai 24.9</p>
+                    <span class="badge bg-success">Normal</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 gap-2">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title text-white"><i class="fas fa-exclamation-circle"></i> Kegemukan</h5>
+                    <p class="card-text text-white">BMI antara 25 sampai 29.9</p>
+                    <span class="badge bg-warning">Kegemukan</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 gap-2">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title text-white"><i class="fas fa-times-circle"></i> Obesitas</h5>
+                    <p class="card-text text-white">BMI 30 atau lebih</p>
+                    <span class="badge bg-danger">Obesitas</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

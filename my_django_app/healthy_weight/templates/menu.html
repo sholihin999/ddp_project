@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg bg-success">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white" href="#">Healthy Weight</a>
+      <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mb-2 mb-lg-0 mx-auto">
+          <li class="nav-item me-4">
+            <a class="nav-link text-white" aria-current="page" href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item me-4">
+            <a class="nav-link text-white" href="{% url 'about' %}">About</a>
+          </li>
+            <li class="nav-item me-4">
+            <a class="nav-link text-white" href="{% url 'contact' %}">Contact</a>
+          </li>
+          <li class="nav-item me-4">
+            <a class="nav-link text-white" href="{% url 'bmi_calculator' %}">BMI Calculator</a>
+          </li>
+        </ul>
+        <form class="d-flex ms-auto text-white" role="search">
+          <input class="form-control me-2 bg-success border-white text-white" type="search" placeholder="Cari" aria-label="Search">
+          <button class="btn btn-outline-light border-white" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>

@@ -1,0 +1,46 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="container mt-0">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card text-center">
+                <div class="card-header bg-success text-white">
+                    <h2>Hasil BMI</h2>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">BMI Anda adalah: 
+                        <span class="badge 
+                            {% if category == 'Kurus' %}bg-danger
+                            {% elif category == 'Normal' %}bg-success
+                            {% elif category == 'Kegemukan' %}bg-warning
+                            {% else %}bg-danger
+                            {% endif %}
+                        ">{{ bmi }}</span>
+                    </h3>
+                    <p class="card-text fs-3">Anda <strong class="
+                        {% if category == 'Kurus' %}text-danger
+                        {% elif category == 'Normal' %}text-success
+                        {% elif category == 'Kegemukan' %}text-warning
+                        {% else %}text-danger
+                        {% endif %}
+                    ">{{ category }}</strong>.</p>
+                    <p class="card-text text-white">
+                        {% if category == 'Kurus' %}
+                        Kategori kurus menunjukkan bahwa berat badan Anda berada di bawah rentang yang dianggap sehat. Hal ini bisa disebabkan oleh kurangnya asupan nutrisi atau kondisi kesehatan tertentu. Penting untuk menjaga pola makan seimbang dan berkonsultasi dengan ahli gizi jika diperlukan untuk mencapai berat badan ideal.
+                        {% elif category == 'Normal' %}
+                        Selamat! Berat badan Anda tergolong normal dan berada dalam rentang yang sehat. Tetaplah menjaga pola hidup sehat dengan mengonsumsi makanan bergizi, rutin berolahraga, dan mencukupi waktu istirahat agar tubuh tetap bugar dan prima.
+                        {% elif category == 'Kegemukan' %}
+                        Berada dalam kategori kelebihan berat badan atau kegemukan bisa meningkatkan risiko terkena berbagai penyakit, seperti hipertensi dan diabetes. Anda bisa mulai memperbaiki pola hidup dengan mengurangi asupan kalori, meningkatkan aktivitas fisik, dan menerapkan gaya hidup sehat secara konsisten.
+                        {% else %}
+                        Obesitas merupakan kondisi di mana berat badan jauh melebihi rentang sehat, yang dapat berisiko tinggi terhadap kesehatan, termasuk penyakit jantung, stroke, dan gangguan metabolik. Disarankan untuk berkonsultasi dengan dokter atau ahli gizi untuk mendapatkan rencana penurunan berat badan yang sesuai dan aman.
+                        {% endif %}
+                    </p>
+                </div>
+                <div class="card-footer text-muted">
+                    <a href="{% url 'bmi_calculator' %}" class="btn btn-secondary">Hitung Ulang</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
